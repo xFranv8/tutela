@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tutela · Cada mañana, lo raro de la cuenta de tus padres</title>
+<meta name="description" content="Un resumen diario para hijos e hijas: recibos nuevos, cargos duplicados y transferencias a desconocidos en la cuenta de tus padres. Solo lectura. Nunca mueve dinero. Lista de espera abierta.">
+<meta property="og:title" content="Tutela · Lo raro de la cuenta de tus padres, cada mañana">
+<meta property="og:description" content="Resumen diario en solo lectura para que te enteres de recibos nuevos, cargos duplicados y transferencias a desconocidos. Estamos validando la idea: apúntate a la lista de espera.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Cpath d='M10 32c6-10 13-15 22-15s16 5 22 15c-6 10-13 15-22 15S16 42 10 32z' fill='none' stroke='white' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='7' fill='white'/%3E%3C/svg%3E">
+<style>
+/* Fuentes del sistema (sin Google Fonts: evita enviar la IP del visitante a terceros) */
+:root{--ink:#0f1f1d;--mut:#4b5b58;--line:#e3e8e6;--bg:#f6f8f7;--pri:#0f766e;--pri2:#0b5e58;--soft:#e7f4f2;--warm:#fff7ed;--warm2:#9a3412;--r:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;background:#fff;font-size:17px}
+a{color:var(--pri)}.w{max-width:1100px;margin:auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.02em;font-size:1.05rem}
+.logo i{width:30px;height:30px;border-radius:8px;background:var(--pri);display:grid;place-items:center}
+.links{display:flex;gap:22px;align-items:center}.links a{color:var(--mut);text-decoration:none;font-size:.92rem;font-weight:500}.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:650;font-size:1rem;padding:13px 22px;border-radius:12px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:background .15s,transform .15s}
+.btn.p{background:var(--pri);color:#fff}.btn.p:hover{background:var(--pri2);transform:translateY(-1px)}
+.btn.s{background:#fff;color:var(--ink);border-color:var(--line)}.btn.s:hover{border-color:#c7d2cf}
+.btn.sm{padding:8px 14px;font-size:.9rem;border-radius:10px}
+.hero{padding:56px 0 48px;background:radial-gradient(800px 380px at 90% -10%,#d7efeb 0,transparent 60%),radial-gradient(600px 340px at -10% 0%,#fdf0e1 0,transparent 55%)}
+.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.pill{display:inline-flex;gap:8px;align-items:center;font-size:.82rem;font-weight:600;color:var(--pri2);background:var(--soft);border:1px solid #bfe3dd;padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.1;letter-spacing:-.03em;margin:16px 0;font-weight:800}
+h1 em{font-style:normal;color:var(--pri)}
+.lead{font-size:1.13rem;color:var(--mut);max-width:560px;margin:0}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 18px}
+.trust{display:flex;gap:10px 20px;flex-wrap:wrap;color:var(--mut);font-size:.9rem;padding:0;margin:0;list-style:none}
+.trust li{display:flex;gap:7px;align-items:center}
+.ck{color:var(--pri);font-weight:800}
+/* tarjeta resumen */
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 24px 50px -24px rgba(15,31,29,.28)}
+.digest{padding:20px 20px 14px;max-width:440px;margin-left:auto}
+.dh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:6px}
+.dh b{font-size:1rem}.dh small{color:var(--mut);font-size:.8rem}
+.it{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px dashed var(--line)}
+.it:last-of-type{border-bottom:0}
+.ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:.85rem;font-weight:800;color:#334}
+.ic.a{background:#fef3c7}.ic.b{background:#fde2e1}.ic.c{background:#e0ecff}.ic.d{background:var(--soft)}
+.it p{margin:0;font-size:.88rem;line-height:1.35}.it p span{color:var(--mut);font-size:.8rem;display:block}
+.amt{font-weight:700;font-size:.9rem;white-space:nowrap}
+.demo{font-size:.74rem;color:var(--mut);text-align:center;margin:10px 0 0}
+section{padding:72px 0}.alt{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--pri);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
+h2{font-size:clamp(1.55rem,3vw,2.2rem);letter-spacing:-.025em;line-height:1.2;margin:8px 0 12px}
+.sub{color:var(--mut);max-width:680px;margin:0 0 34px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.box h3{margin:10px 0 6px;font-size:1.08rem}.box p{margin:0;color:var(--mut);font-size:.96rem}
+.num{width:34px;height:34px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center;font-weight:800}
+.not{background:var(--warm);border:1px solid #fed7aa;border-radius:var(--r);padding:22px 24px;margin-top:22px}
+.not h3{margin:0 0 8px;color:var(--warm2);font-size:1.02rem}.not ul{margin:0;padding-left:20px;color:#5b3a1e}.not li{margin:4px 0}
+.stat{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.big{font-size:clamp(2.4rem,6vw,3.6rem);font-weight:800;letter-spacing:-.03em;color:var(--pri);line-height:1}
+.src{font-size:.85rem;color:var(--mut)}
+.price{max-width:520px;margin:auto;text-align:center;padding:30px 26px}
+.price .amount{font-size:2.6rem;font-weight:800;letter-spacing:-.03em}.price .amount small{font-size:1rem;color:var(--mut);font-weight:600}
+.price ul{text-align:left;list-style:none;padding:0;margin:18px 0}.price li{padding:6px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.draft{display:none;border:2px dashed #f59e0b;background:#fffbeb;color:#92400e;border-radius:12px;padding:10px 12px;font-size:.85rem;margin:0 0 16px;text-align:left}
+body.price-draft .draft{display:block}
+/* formulario */
+form{display:grid;gap:18px}
+label,legend{font-weight:650;font-size:.95rem}
+.hint{font-weight:400;color:var(--mut);font-size:.85rem}
+input[type=email],select,textarea{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1px solid #cdd6d3;border-radius:10px;background:#fff;color:var(--ink);margin-top:6px}
+input:focus,select:focus,textarea:focus{outline:3px solid #99d5cc;border-color:var(--pri)}
+fieldset{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0}
+fieldset.key{border:2px solid var(--pri);background:var(--soft)}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opts label{font-weight:500;display:flex;gap:8px;align-items:center;border:1px solid #cdd6d3;background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:.95rem}
+.opts input{accent-color:var(--pri);width:18px;height:18px;margin:0}
+.consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--mut)}
+.consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--pri);flex:none}
+.privacy{font-size:.8rem;color:var(--mut);background:var(--bg);border-radius:10px;padding:12px 14px;margin:0}
+.msg{display:none;padding:14px 16px;border-radius:10px;font-weight:600}
+.msg.ok{display:block;background:#dcfce7;color:#14532d}.msg.err{display:block;background:#fee2e2;color:#7f1d1d}.msg.info{display:block;background:#fef3c7;color:#78350f}
+.formwrap{max-width:640px;margin:auto;padding:28px}
+details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:650;cursor:pointer}details p{color:var(--mut);margin:8px 0 0}
+footer{padding:36px 0;color:var(--mut);font-size:.85rem;border-top:1px solid var(--line)}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (max-width:860px){
+  .hero{padding:32px 0 36px}.hero .w{grid-template-columns:1fr;gap:30px}.digest{margin:0 auto}
+  .g3,.g2{grid-template-columns:1fr}.links a.hide-m{display:none}.stat{grid-template-columns:1fr;gap:10px}
+  section{padding:52px 0}.formwrap{padding:20px}
+}
+</style>
+</head>
+<body>
+<!--
+  ============================================================
+  CONFIGURACIÓN (edita solo este bloque y el de <script> CONFIG)
+  - Precio, endpoint del formulario y datos del responsable
+    están en el objeto CONFIG al final del archivo.
+  ============================================================
+-->
+<nav><div class="w">
+  <a class="logo" href="#"><i><svg width="18" height="18" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 32c6-10 14-15 24-15s18 5 24 15c-6 10-14 15-24 15S14 42 8 32z" fill="none" stroke="#fff" stroke-width="6"/><circle cx="32" cy="32" r="7" fill="#fff"/></svg></i><span data-name>Tutela</span></a>
+  <div class="links"><a class="hide-m" href="#como">Cómo funciona</a><a class="hide-m" href="#seguridad">Seguridad</a><a class="hide-m" href="#precio">Precio</a><a class="btn p sm" href="#lista">Lista de espera</a></div>
+</div></nav>
+
+<header class="hero"><div class="w">
+  <div>
+    <span class="pill">Proyecto en validación · aún no está disponible</span>
+    <h1>Cada mañana, <em>lo raro</em> de la cuenta de tus padres.</h1>
+    <p class="lead">Un resumen diario para ti con lo que se sale de lo normal en su banco: recibos de empresas nuevas, cargos duplicados, transferencias a cuentas desconocidas e importes poco habituales. Tus padres siguen llevando su cuenta como siempre; tú solo recibes el aviso.</p>
+    <div class="ctas"><a class="btn p" href="#lista">Apuntarme a la lista de espera</a><a class="btn s" href="#como">Cómo funciona</a></div>
+    <ul class="trust">
+      <li><span class="ck">✓</span> Solo lectura</li>
+      <li><span class="ck">✓</span> Nunca mueve dinero</li>
+      <li><span class="ck">✓</span> Sin pedir sus claves</li>
+      <li><span class="ck">✓</span> Lo pueden desconectar cuando quieran</li>
+    </ul>
+  </div>
+  <div>
+    <div class="card digest" aria-label="Ejemplo de resumen diario">
+      <div class="dh"><b>Resumen de la cuenta de mamá</b><small>Martes, 8:00</small></div>
+      <div class="it"><div class="ic a">€</div><p>Recibo de un emisor nuevo<span>«Servicios Premium Móvil» · primer cargo</span></p><div class="amt">9,99 €</div></div>
+      <div class="it"><div class="ic b">×2</div><p>Posible cargo duplicado<span>Farmacia · mismo importe, mismo día</span></p><div class="amt">2 × 23,40 €</div></div>
+      <div class="it"><div class="ic c">↗</div><p>Transferencia a un destinatario nuevo<span>ES·· ···· ···· 4821 · nunca antes usado</span></p><div class="amt">600,00 €</div></div>
+      <div class="it"><div class="ic d">✓</div><p>Todo lo demás, como siempre<span>14 movimientos habituales</span></p><div class="amt">—</div></div>
+      <p class="demo">Ejemplo ilustrativo con datos inventados.</p>
+    </div>
+  </div>
+</div></header>
+
+<section id="como"><div class="w">
+  <span class="eyebrow">Cómo funciona</span>
+  <h2>Tres pasos, y ellos no tienen que aprender nada nuevo</h2>
+  <p class="sub">La conexión se hace una vez, con tu padre o tu madre delante, desde la propia app o web de su banco. Después todo sigue igual para ellos.</p>
+  <div class="g3">
+    <div class="box"><div class="num">1</div><h3>Tu padre o tu madre da permiso</h3><p>Entra en su banco como hace siempre y autoriza que se puedan <b>consultar</b> sus movimientos. No comparte sus claves con nadie: la autorización se hace en la pantalla de su banco.</p></div>
+    <div class="box"><div class="num">2</div><h3>Aprendemos qué es lo normal</h3><p>Sus recibos de siempre, la pensión, la farmacia, el súper. Con eso sabemos distinguir lo habitual de lo que merece una segunda mirada.</p></div>
+    <div class="box"><div class="num">3</div><h3>Tú recibes el resumen cada mañana</h3><p>Un correo o notificación con solo lo raro. Si todo está en orden, te lo decimos en una línea. Si algo no cuadra, lo hablas con ellos o llamáis juntos al banco.</p></div>
+  </div>
+  <div class="g2" style="margin-top:20px">
+    <div class="box"><h3>Qué te avisa</h3><p>• Primer recibo de una empresa nueva (suscripciones que nadie recuerda haber contratado)<br>• Cargos duplicados<br>• Transferencias a cuentas a las que nunca había enviado dinero<br>• Importes muy por encima de lo habitual</p></div>
+    <div class="box"><h3>Quién decide</h3><p>La cuenta es de tus padres. Ellos dan el permiso, saben qué ves y pueden retirarlo en cualquier momento desde su banco. <span data-name>Tutela</span> no da consejos de inversión ni toma decisiones por nadie.</p></div>
+  </div>
+  <div class="not">
+    <h3>Lo que no es (para que no haya sorpresas)</h3>
+    <ul>
+      <li><b>No es un aviso en tiempo real.</b> Los bancos limitan cuántas veces al día se pueden consultar los movimientos, así que es un resumen diario, no una alarma al segundo.</li>
+      <li><b>No bloquea pagos ni puede frenar una transferencia.</b> Te ayuda a enterarte antes y a actuar con tu familia y con el banco.</li>
+      <li><b>No sustituye las alertas de su banco.</b> Las complementa: muchas alertas le llegan solo al titular; esta te llega a ti.</li>
+      <li><b>El permiso caduca.</b> Por normativa, cada cierto tiempo el banco pide renovarlo. Te avisaremos con antelación para hacerlo juntos.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="seguridad" class="alt"><div class="w">
+  <span class="eyebrow">Seguridad</span>
+  <h2>Ver, sí. Tocar, nunca.</h2>
+  <p class="sub">Usamos la misma vía que las apps de finanzas personales que ya conectan bancos en Europa: el acceso a información de cuentas regulado por la directiva europea de pagos (PSD2).</p>
+  <div class="g3">
+    <div class="box"><h3>Solo lectura</h3><p>El permiso que se pide es únicamente para consultar movimientos y saldo. Técnicamente no permite hacer pagos, transferencias ni cambiar nada.</p></div>
+    <div class="box"><h3>A través de un proveedor autorizado</h3><p>La conexión con el banco la hace una entidad autorizada y supervisada para prestar servicios de información de cuentas. Nunca vemos ni guardamos las claves del banco.</p></div>
+    <div class="box"><h3>Control total de tus padres</h3><p>Pueden revocar el acceso desde su banco cuando quieran, y pedirnos borrar todos sus datos. Guardamos lo mínimo para generar el resumen.</p></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <div class="stat">
+    <div class="big">383.285</div>
+    <div>
+      <h2 style="margin-top:0">víctimas de ciberdelitos en España en 2025</h2>
+      <p class="sub" style="margin-bottom:8px">Un 9,3 % más que en 2024, según el Informe sobre la Cibercriminalidad en España 2025 del Ministerio del Interior. La mayoría de los ciberdelitos registrados fueron fraudes informáticos.</p>
+      <p class="src">Fuente: <a href="https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/interior/paginas/2026/100726-interior-ciberdelitos.aspx" target="_blank" rel="noopener">La Moncloa · Ministerio del Interior, 10/07/2026</a></p>
+    </div>
+  </div>
+</div></section>
+
+<section id="precio" class="alt"><div class="w">
+  <span class="eyebrow" style="display:block;text-align:center">Precio</span>
+  <h2 style="text-align:center">Precio de fundador para la lista de espera</h2>
+  <p class="sub" style="text-align:center;margin:0 auto 28px">Lo paga quien recibe los avisos. Apuntarte no te compromete a nada: no pedimos tarjeta.</p>
+  <div class="card price">
+    <div class="draft">BORRADOR · precio sugerido, pendiente de confirmar. Cámbialo en <code>CONFIG</code> y pon <code>PRICE_CONFIRMED: true</code> antes de publicar.</div>
+    <div class="amount"><span data-price-month>4,99</span> € <small>/ mes</small></div>
+    <div style="color:var(--mut)">o <b><span data-price-year>49</span> €/año</b> · precio de fundador</div>
+    <ul>
+      <li><span class="ck">✓</span> Resumen diario de una cuenta de tus padres</li>
+      <li><span class="ck">✓</span> Avisos de recibos nuevos, duplicados, transferencias y cargos inusuales</li>
+      <li><span class="ck">✓</span> Recordatorio para renovar el permiso del banco</li>
+      <li><span class="ck">✓</span> Cancelas cuando quieras</li>
+    </ul>
+    <a class="btn p" href="#lista" style="width:100%">Quiero el precio de fundador</a>
+  </div>
+</div></section>
+
+<section id="lista"><div class="w">
+  <div class="card formwrap">
+    <span class="eyebrow">Lista de espera</span>
+    <h2 style="margin-top:6px">Ayúdanos a decidir si lo construimos</h2>
+    <p style="color:var(--mut);margin-top:0">Son 30 segundos. Tus respuestas nos dicen si esto tiene sentido para familias como la tuya.</p>
+
+    <!-- Opción A: formulario Tally embebido (se activa si pones CONFIG.TALLY_FORM_ID) -->
+    <div id="tally-wrap" hidden>
+      <iframe id="tally-frame" data-tally-src="" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Lista de espera"></iframe>
+    </div>
+
+    <!-- Opción B: formulario propio que envía a CONFIG.FORM_ENDPOINT (Formspree, Getform, Basin...) -->
+    <form id="waitlist" method="POST" action="#" novalidate>
+      <div>
+        <label for="email">Tu email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="tu@email.com">
+      </div>
+      <div>
+        <label for="relacion">¿Qué relación tienes con la persona titular de la cuenta?</label>
+        <select id="relacion" name="relacion" required>
+          <option value="" selected disabled>Elige una opción</option>
+          <option>Hijo/a</option><option>Nieto/a</option><option>Otro</option>
+        </select>
+      </div>
+      <div>
+        <label for="banco">¿En qué banco tiene su cuenta principal? <span class="hint">(opcional)</span></label>
+        <select id="banco" name="banco">
+          <option value="" selected>Elige un banco</option>
+          <option>CaixaBank</option><option>Banco Santander</option><option>BBVA</option><option>Banco Sabadell</option>
+          <option>Bankinter</option><option>Unicaja</option><option>Ibercaja</option><option>Kutxabank</option>
+          <option>Abanca</option><option>Cajamar</option><option>Caja Rural</option><option>ING</option>
+          <option>Openbank</option><option>Otro</option><option>No lo sé</option>
+        </select>
+      </div>
+      <fieldset class="key">
+        <legend>¿Tu padre o tu madre conectaría su banco?</legend>
+        <span class="hint">Sé sincero/a: es la pregunta más importante para nosotros.</span>
+        <div class="opts">
+          <label><input type="radio" name="conectaria" value="Sí" required> Sí</label>
+          <label><input type="radio" name="conectaria" value="No"> No</label>
+          <label><input type="radio" name="conectaria" value="Lo haría yo con él o ella"> Lo haría yo con él o ella</label>
+          <label><input type="radio" name="conectaria" value="No lo sé"> No lo sé</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>¿Pagarías <span data-price-month>4,99</span> €/mes por recibir este resumen?</legend>
+        <div class="opts">
+          <label><input type="radio" name="pagaria" value="Sí" required> Sí</label>
+          <label><input type="radio" name="pagaria" value="Quizá"> Quizá</label>
+          <label><input type="radio" name="pagaria" value="No"> No</label>
+        </div>
+      </fieldset>
+      <div>
+        <label for="comentario">¿Algo que quieras contarnos? <span class="hint">(opcional)</span></label>
+        <textarea id="comentario" name="comentario" rows="3" maxlength="1000" placeholder="Por ejemplo: qué te preocupa, qué te gustaría que te avisara…"></textarea>
+      </div>
+      <input type="hidden" name="precio_mostrado" id="precio_mostrado">
+      <input type="hidden" name="origen" id="origen">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <label class="consent"><input type="checkbox" name="consentimiento" value="Acepto" required> <span>Acepto que se usen mis datos para avisarme del lanzamiento y para analizar las respuestas de esta encuesta, según la nota de privacidad de abajo.</span></label>
+      <p class="privacy"><b>Privacidad.</b> Responsable: <span data-owner>el equipo de Tutela</span>. Finalidad: gestionar la lista de espera y estudiar el interés en el producto. Base legal: tu consentimiento. No cedemos tus datos a terceros salvo al proveedor del formulario, que actúa como encargado del tratamiento. Conservamos los datos hasta el lanzamiento o un máximo de 12 meses. Puedes acceder, rectificar o borrar tus datos escribiendo a <span data-contact>nexway.corporate@gmail.com</span>, y reclamar ante la AEPD. No te pedimos ningún dato bancario.</p>
+      <button class="btn p" type="submit" id="submitbtn">Apuntarme</button>
+      <div id="msg" class="msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div></section>
+
+<section class="alt"><div class="w" style="max-width:780px">
+  <span class="eyebrow">Preguntas frecuentes</span>
+  <h2>Lo que nos preguntaría cualquier hijo con dos dedos de frente</h2>
+  <details><summary>¿Esto existe ya?</summary><p>Todavía no. Estamos midiendo si hay suficientes familias interesadas antes de construirlo. Si te apuntas, te avisaremos cuando haya una versión para probar.</p></details>
+  <details><summary>¿Puede alguien mover dinero de la cuenta con esto?</summary><p>No. El permiso que concede el titular es de información de cuentas (solo lectura). Con él no se pueden hacer pagos ni transferencias.</p></details>
+  <details><summary>¿Mi padre tiene que darme sus claves?</summary><p>No, y no debería dárselas a nadie. La autorización la hace él o ella en la pantalla de su propio banco, y puede retirarla cuando quiera.</p></details>
+  <details><summary>¿Por qué un resumen diario y no un aviso al momento?</summary><p>Porque muchos bancos solo permiten consultar los movimientos unas pocas veces al día cuando el titular no está conectado. Preferimos prometer algo que podamos cumplir.</p></details>
+  <details><summary>¿Y si su banco ya tiene alertas?</summary><p>Genial, que las mantenga. La diferencia es a quién le llegan: las del banco las recibe el titular; esta te llega a ti, para que podáis hablarlo.</p></details>
+  <details><summary>¿Es legal?</summary><p>Sí, siempre que sea el propio titular quien da el permiso. Es la vía que regula la normativa europea de servicios de pago. Nunca conectaremos una cuenta sin el consentimiento de su titular.</p></details>
+</div></section>
+
+<footer><div class="w">
+  <span>© 2026 <span data-name>Tutela</span> · Proyecto en fase de validación. No es un banco ni presta asesoramiento financiero.</span>
+  <span><a href="#lista">Lista de espera</a> · <a href="#seguridad">Seguridad</a></span>
+</div></footer>
+
+<script>
+/* =====================  CONFIG (editar aquí)  ===================== */
+const CONFIG = {
+  NAME: "Tutela",                 // nombre comercial elegido el 23/10/2026 (ver naming_and_domains.md: hay una marca española TUTELA en clase 36)
+  PRICE_MONTH: "4,99",            // precio de fundador mensual (confirmado 24/10/2026)
+  PRICE_YEAR: "49",               // precio de fundador anual (confirmado 24/10/2026)
+  PRICE_CONFIRMED: true,          // pon true cuando fijes el precio (oculta el aviso de borrador)
+  TALLY_FORM_ID: "",              // [PENDIENTE] p. ej. "M1KJql" -> usa Tally embebido y oculta el formulario propio
+  FORM_ENDPOINT: "",              // [PENDIENTE] p. ej. "https://formspree.io/f/xxxxxxx" (si no usas Tally)
+  OWNER: "el equipo de Tutela",
+  CONTACT_EMAIL: "nexway.corporate@gmail.com"
+};
+/* ================================================================== */
+(function(){
+  const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+  $$('[data-price-month]').forEach(e=>e.textContent=CONFIG.PRICE_MONTH);
+  $$('[data-price-year]').forEach(e=>e.textContent=CONFIG.PRICE_YEAR);
+  $$('[data-name]').forEach(e=>e.textContent=CONFIG.NAME);
+  $$('[data-owner]').forEach(e=>e.textContent=CONFIG.OWNER);
+  $$('[data-contact]').forEach(e=>e.textContent=CONFIG.CONTACT_EMAIL);
+  if(!CONFIG.PRICE_CONFIRMED) document.body.classList.add('price-draft');
+  const p=new URLSearchParams(location.search);
+  const origen=[p.get('utm_source'),p.get('utm_medium'),p.get('utm_campaign')].filter(Boolean).join('/')||document.referrer||'directo';
+  $('#origen').value=origen; $('#precio_mostrado').value=CONFIG.PRICE_MONTH+' €/mes';
+
+  // Opción A: Tally (mismo snippet que ai-literacy-kit). Pasa precio y origen como campos ocultos.
+  if(CONFIG.TALLY_FORM_ID){
+    $('#waitlist').hidden=true; $('#tally-wrap').hidden=false;
+    const q=new URLSearchParams({alignLeft:1,hideTitle:1,transparentBackground:1,dynamicHeight:1,precio:CONFIG.PRICE_MONTH,origen:origen});
+    $('#tally-frame').dataset.tallySrc='https://tally.so/embed/'+CONFIG.TALLY_FORM_ID+'?'+q.toString();
+    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+    return;
+  }
+
+  // Opción B: formulario propio -> FORM_ENDPOINT
+  const f=$('#waitlist'),m=$('#msg'),b=$('#submitbtn');
+  const show=(t,c)=>{m.className='msg '+c;m.textContent=t;};
+  f.addEventListener('submit',async ev=>{
+    ev.preventDefault();
+    if(!f.checkValidity()){f.reportValidity();show('Revisa los campos obligatorios: email, relación, las dos preguntas y el consentimiento.','err');return;}
+    if(!CONFIG.FORM_ENDPOINT){show('Modo borrador: el formulario aún no está conectado (falta CONFIG.FORM_ENDPOINT o CONFIG.TALLY_FORM_ID). No se ha enviado nada.','info');return;}
+    b.disabled=true;b.textContent='Enviando…';
+    try{
+      const r=await fetch(CONFIG.FORM_ENDPOINT,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
+      if(!r.ok) throw new Error(r.status);
+      f.reset();show('¡Gracias! Estás en la lista. Te escribiremos solo cuando haya novedades.','ok');
+    }catch(e){show('No se ha podido enviar. Inténtalo de nuevo en un momento.','err');}
+    b.disabled=false;b.textContent='Apuntarme';
+  });
+})();
+</script>
+</body>
+</html>
